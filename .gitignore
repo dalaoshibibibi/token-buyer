@@ -24,3 +24,6 @@ credentials.json
 
 # 原始抓取快照（第三方平台数据，不进开源仓库）
 data/*.json
+
+# 例外：保留纯合成的格式样例（无第三方内容）
+!data/sample.json

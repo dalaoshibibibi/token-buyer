@@ -1,0 +1,13 @@
+{
+  "platform": "示例平台（合成数据，仅展示格式）",
+  "scrape_time": "2026-01-01T00:00:00+08:00",
+  "models": [
+    {
+      "name": "标准模型名（需与 references/model-aliases.md 对齐）",
+      "input_price": 0.0,
+      "output_price": 0.0,
+      "currency": "CNY",
+      "source_url": "https://平台定价页"
+    }
+  ]
+}
