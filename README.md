@@ -1,9 +1,21 @@
+<p align="center">
+  <img src="assets/hero.svg" alt="Token买手 — AI算力采购决策专家" width="100%">
+</p>
+
 # Token买手 — AI 算力采购决策专家
 
 > 一个把「API 中转站」和「Token Plan 订阅」两类 AI 算力采购渠道，批量解析、交叉验证、算出真实折扣率，并直接告诉你「买谁」的 WorkBuddy Skill。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-v7.4-blue.svg)](./CHANGELOG.md)
+<p align="center">
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/version-v7.4-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Node-%E2%89%A518-339933.svg" alt="Node >=18">
+  <img src="https://img.shields.io/badge/Python-%E2%89%A53.10-3776AB.svg" alt="Python >=3.10">
+  <img src="https://img.shields.io/github/last-commit/dalaoshibibibi/token-buyer" alt="Last Commit">
+  <img src="https://img.shields.io/github/repo-size/dalaoshibibibi/token-buyer" alt="Repo Size">
+  <img src="https://img.shields.io/badge/issues-welcome-FF6B6B.svg" alt="Issues Welcome">
+  <img src="https://img.shields.io/badge/PRs-encouraged-brightgreen.svg" alt="PRs Encouraged">
+</p>
 
 ---
 
@@ -64,9 +76,9 @@ token-buyer/
 ├── templates/
 │   └── output-template.md        # 双赛道输出格式规范（AI 照此排版）
 │
-├── data/                         # 运行时数据（已附带示例快照，可刷新）
-│   ├── *.json                    # 各平台抓取/整理的价目快照
-│   └── README.md                 # 数据格式说明 + 如何重新生成
+├── data/                         # 运行时数据（原始抓取快照已 gitignore，不进开源仓库）
+│   ├── sample.json               # 纯合成格式样例（无第三方内容），展示 JSON 结构
+│   └── README.md                 # 数据格式说明 + 如何自己抓取生成
 │
 └── companion-skills/
     └── browser/                  # 🔌 伴生插件：Puppeteer 无头浏览器（scraper 的可选依赖）
@@ -84,7 +96,7 @@ token-buyer/
 ```bash
 # 在你的 WorkBuddy 用户级 skills 目录
 cd ~/.workbuddy/skills
-git clone <你的仓库地址> token-buyer
+git clone https://github.com/dalaoshibibibi/token-buyer.git token-buyer
 ```
 
 克隆后目录应为 `~/.workbuddy/skills/token-buyer/`，WorkBuddy 重启即自动识别。
