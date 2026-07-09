@@ -21,3 +21,6 @@ credentials.json
 .idea/
 .vscode/
 *.swp
+
+# 原始抓取快照（第三方平台数据，不进开源仓库）
+data/*.json
