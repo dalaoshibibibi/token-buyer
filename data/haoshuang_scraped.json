@@ -1,0 +1,858 @@
+{
+  "platform": "HaoshuangAPI",
+  "scrape_time": "2026-06-27T03:35:55.969Z",
+  "group_ratio": {
+    "Claude旗舰": 9.3,
+    "Claude高质量备用": 2.7,
+    "GPT旗舰": 2.25,
+    "Gemini旗舰": 2.7,
+    "claude企业通道": 7,
+    "gpt企业通道": 7,
+    "国产模型": 1,
+    "生图": 3.5,
+    "高质量": 1.5,
+    "高质量备用": 1.8
+  },
+  "models": [
+    {
+      "model_name": "gpt-5.1-codex-max",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 0.5,
+      "completion_ratio": 8,
+      "enable_groups": [
+        "高质量",
+        "auto",
+        "GPT旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量",
+          "inputPrice": 0.75,
+          "outputPrice": 6
+        },
+        {
+          "group": "GPT旗舰",
+          "inputPrice": 1.125,
+          "outputPrice": 9
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.75,
+        "outputPrice": 6
+      }
+    },
+    {
+      "model_name": "claude-opus-4-7",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 2.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "claude企业通道",
+        "Claude旗舰",
+        "高质量",
+        "高质量备用",
+        "auto"
+      ],
+      "group_prices": [
+        {
+          "group": "claude企业通道",
+          "inputPrice": 17.5,
+          "outputPrice": 87.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 23.25,
+          "outputPrice": 116.25
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 3.75,
+          "outputPrice": 18.75
+        },
+        {
+          "group": "高质量备用",
+          "inputPrice": 4.5,
+          "outputPrice": 22.5
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 3.75,
+        "outputPrice": 18.75
+      }
+    },
+    {
+      "model_name": "claude-opus-4-8",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 2.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "auto",
+        "claude企业通道",
+        "Claude旗舰",
+        "高质量",
+        "高质量备用"
+      ],
+      "group_prices": [
+        {
+          "group": "claude企业通道",
+          "inputPrice": 17.5,
+          "outputPrice": 87.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 23.25,
+          "outputPrice": 116.25
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 3.75,
+          "outputPrice": 18.75
+        },
+        {
+          "group": "高质量备用",
+          "inputPrice": 4.5,
+          "outputPrice": 22.5
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 3.75,
+        "outputPrice": 18.75
+      }
+    },
+    {
+      "model_name": "claude-sonnet-4-6-20260218",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 1.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "Claude高质量备用",
+        "高质量",
+        "auto",
+        "claude企业通道",
+        "Claude旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "Claude高质量备用",
+          "inputPrice": 4.050000000000001,
+          "outputPrice": 20.250000000000004
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 2.25,
+          "outputPrice": 11.25
+        },
+        {
+          "group": "claude企业通道",
+          "inputPrice": 10.5,
+          "outputPrice": 52.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 13.950000000000001,
+          "outputPrice": 69.75
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 2.25,
+        "outputPrice": 11.25
+      }
+    },
+    {
+      "model_name": "gemini-3-flash-preview",
+      "vendor_id": 2,
+      "quota_type": 0,
+      "model_ratio": 0.25,
+      "completion_ratio": 6,
+      "enable_groups": [
+        "auto",
+        "Gemini旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "Gemini旗舰",
+          "inputPrice": 0.675,
+          "outputPrice": 4.050000000000001
+        }
+      ],
+      "best_price": {
+        "group": "Gemini旗舰",
+        "inputPrice": 0.675,
+        "outputPrice": 4.050000000000001
+      }
+    },
+    {
+      "model_name": "gpt-5.3-codex",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 0.625,
+      "completion_ratio": 8,
+      "enable_groups": [
+        "高质量备用",
+        "auto",
+        "gpt企业通道",
+        "GPT旗舰",
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量备用",
+          "inputPrice": 1.125,
+          "outputPrice": 9
+        },
+        {
+          "group": "gpt企业通道",
+          "inputPrice": 4.375,
+          "outputPrice": 35
+        },
+        {
+          "group": "GPT旗舰",
+          "inputPrice": 1.40625,
+          "outputPrice": 11.25
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 0.9375,
+          "outputPrice": 7.5
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.9375,
+        "outputPrice": 7.5
+      }
+    },
+    {
+      "model_name": "deepseek-v4-flash",
+      "vendor_id": 4,
+      "quota_type": 0,
+      "model_ratio": 0.2175,
+      "completion_ratio": 2,
+      "enable_groups": [
+        "国产模型"
+      ],
+      "group_prices": [
+        {
+          "group": "国产模型",
+          "inputPrice": 0.2175,
+          "outputPrice": 0.435
+        }
+      ],
+      "best_price": {
+        "group": "国产模型",
+        "inputPrice": 0.2175,
+        "outputPrice": 0.435
+      }
+    },
+    {
+      "model_name": "claude-sonnet-4-6",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 1.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "高质量备用",
+        "auto",
+        "claude企业通道",
+        "Claude旗舰",
+        "Claude高质量备用",
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量备用",
+          "inputPrice": 2.7,
+          "outputPrice": 13.5
+        },
+        {
+          "group": "claude企业通道",
+          "inputPrice": 10.5,
+          "outputPrice": 52.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 13.950000000000001,
+          "outputPrice": 69.75
+        },
+        {
+          "group": "Claude高质量备用",
+          "inputPrice": 4.050000000000001,
+          "outputPrice": 20.250000000000004
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 2.25,
+          "outputPrice": 11.25
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 2.25,
+        "outputPrice": 11.25
+      }
+    },
+    {
+      "model_name": "gemini-2.5-flash",
+      "vendor_id": 2,
+      "quota_type": 0,
+      "model_ratio": 0.15,
+      "completion_ratio": 8.333,
+      "enable_groups": [
+        "auto",
+        "Gemini旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "Gemini旗舰",
+          "inputPrice": 0.405,
+          "outputPrice": 3.3748650000000002
+        }
+      ],
+      "best_price": {
+        "group": "Gemini旗舰",
+        "inputPrice": 0.405,
+        "outputPrice": 3.3748650000000002
+      }
+    },
+    {
+      "model_name": "gpt-5.2",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 0.625,
+      "completion_ratio": 8,
+      "enable_groups": [
+        "GPT旗舰",
+        "高质量",
+        "auto"
+      ],
+      "group_prices": [
+        {
+          "group": "GPT旗舰",
+          "inputPrice": 1.40625,
+          "outputPrice": 11.25
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 0.9375,
+          "outputPrice": 7.5
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.9375,
+        "outputPrice": 7.5
+      }
+    },
+    {
+      "model_name": "gpt-5.2-codex",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 0.625,
+      "completion_ratio": 8,
+      "enable_groups": [
+        "高质量",
+        "auto",
+        "GPT旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量",
+          "inputPrice": 0.9375,
+          "outputPrice": 7.5
+        },
+        {
+          "group": "GPT旗舰",
+          "inputPrice": 1.40625,
+          "outputPrice": 11.25
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.9375,
+        "outputPrice": 7.5
+      }
+    },
+    {
+      "model_name": "gpt-5.4",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 1.25,
+      "completion_ratio": 6,
+      "enable_groups": [
+        "高质量备用",
+        "auto",
+        "gpt企业通道",
+        "GPT旗舰",
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量备用",
+          "inputPrice": 2.25,
+          "outputPrice": 13.5
+        },
+        {
+          "group": "gpt企业通道",
+          "inputPrice": 8.75,
+          "outputPrice": 52.5
+        },
+        {
+          "group": "GPT旗舰",
+          "inputPrice": 2.8125,
+          "outputPrice": 16.875
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 1.875,
+          "outputPrice": 11.25
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 1.875,
+        "outputPrice": 11.25
+      }
+    },
+    {
+      "model_name": "deepseek-v4-pro",
+      "vendor_id": 4,
+      "quota_type": 0,
+      "model_ratio": 0.675,
+      "completion_ratio": 2,
+      "enable_groups": [
+        "国产模型"
+      ],
+      "group_prices": [
+        {
+          "group": "国产模型",
+          "inputPrice": 0.675,
+          "outputPrice": 1.35
+        }
+      ],
+      "best_price": {
+        "group": "国产模型",
+        "inputPrice": 0.675,
+        "outputPrice": 1.35
+      }
+    },
+    {
+      "model_name": "deepseek-v4-pro-search",
+      "vendor_id": 4,
+      "quota_type": 0,
+      "model_ratio": 0.675,
+      "completion_ratio": 2,
+      "enable_groups": [
+        "国产模型"
+      ],
+      "group_prices": [
+        {
+          "group": "国产模型",
+          "inputPrice": 0.675,
+          "outputPrice": 1.35
+        }
+      ],
+      "best_price": {
+        "group": "国产模型",
+        "inputPrice": 0.675,
+        "outputPrice": 1.35
+      }
+    },
+    {
+      "model_name": "kimi-k2.6",
+      "vendor_id": 6,
+      "quota_type": 0,
+      "model_ratio": 4.55,
+      "completion_ratio": 4.1538461538,
+      "enable_groups": [
+        "国产模型"
+      ],
+      "group_prices": [
+        {
+          "group": "国产模型",
+          "inputPrice": 4.55,
+          "outputPrice": 18.899999999789998
+        }
+      ],
+      "best_price": {
+        "group": "国产模型",
+        "inputPrice": 4.55,
+        "outputPrice": 18.899999999789998
+      }
+    },
+    {
+      "model_name": "claude-haiku-4-5-20251001",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 0.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "auto",
+        "Claude旗舰",
+        "高质量",
+        "高质量备用"
+      ],
+      "group_prices": [
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 4.65,
+          "outputPrice": 23.25
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 0.75,
+          "outputPrice": 3.75
+        },
+        {
+          "group": "高质量备用",
+          "inputPrice": 0.9,
+          "outputPrice": 4.5
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.75,
+        "outputPrice": 3.75
+      }
+    },
+    {
+      "model_name": "claude-opus-4-5-20251101",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 2.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "auto",
+        "claude企业通道",
+        "Claude旗舰",
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "claude企业通道",
+          "inputPrice": 17.5,
+          "outputPrice": 87.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 23.25,
+          "outputPrice": 116.25
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 3.75,
+          "outputPrice": 18.75
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 3.75,
+        "outputPrice": 18.75
+      }
+    },
+    {
+      "model_name": "claude-opus-4-6",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 2.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "auto",
+        "claude企业通道",
+        "Claude旗舰",
+        "Claude高质量备用",
+        "高质量",
+        "高质量备用"
+      ],
+      "group_prices": [
+        {
+          "group": "claude企业通道",
+          "inputPrice": 17.5,
+          "outputPrice": 87.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 23.25,
+          "outputPrice": 116.25
+        },
+        {
+          "group": "Claude高质量备用",
+          "inputPrice": 6.75,
+          "outputPrice": 33.75
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 3.75,
+          "outputPrice": 18.75
+        },
+        {
+          "group": "高质量备用",
+          "inputPrice": 4.5,
+          "outputPrice": 22.5
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 3.75,
+        "outputPrice": 18.75
+      }
+    },
+    {
+      "model_name": "claude-sonnet-4-20250514",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 1.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "auto",
+        "claude企业通道",
+        "Claude旗舰",
+        "Claude高质量备用",
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "claude企业通道",
+          "inputPrice": 10.5,
+          "outputPrice": 52.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 13.950000000000001,
+          "outputPrice": 69.75
+        },
+        {
+          "group": "Claude高质量备用",
+          "inputPrice": 4.050000000000001,
+          "outputPrice": 20.250000000000004
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 2.25,
+          "outputPrice": 11.25
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 2.25,
+        "outputPrice": 11.25
+      }
+    },
+    {
+      "model_name": "gpt-5.1-codex-mini",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 0.5,
+      "completion_ratio": 8,
+      "enable_groups": [
+        "auto",
+        "GPT旗舰",
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "GPT旗舰",
+          "inputPrice": 1.125,
+          "outputPrice": 9
+        },
+        {
+          "group": "高质量",
+          "inputPrice": 0.75,
+          "outputPrice": 6
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.75,
+        "outputPrice": 6
+      }
+    },
+    {
+      "model_name": "claude-sonnet-4-5-20250929",
+      "vendor_id": 1,
+      "quota_type": 0,
+      "model_ratio": 1.5,
+      "completion_ratio": 5,
+      "enable_groups": [
+        "高质量",
+        "auto",
+        "claude企业通道",
+        "Claude旗舰",
+        "Claude高质量备用"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量",
+          "inputPrice": 2.25,
+          "outputPrice": 11.25
+        },
+        {
+          "group": "claude企业通道",
+          "inputPrice": 10.5,
+          "outputPrice": 52.5
+        },
+        {
+          "group": "Claude旗舰",
+          "inputPrice": 13.950000000000001,
+          "outputPrice": 69.75
+        },
+        {
+          "group": "Claude高质量备用",
+          "inputPrice": 4.050000000000001,
+          "outputPrice": 20.250000000000004
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 2.25,
+        "outputPrice": 11.25
+      }
+    },
+    {
+      "model_name": "gemini-2.5-pro",
+      "vendor_id": 2,
+      "quota_type": 0,
+      "model_ratio": 0.625,
+      "completion_ratio": 8,
+      "enable_groups": [
+        "auto",
+        "Gemini旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "Gemini旗舰",
+          "inputPrice": 1.6875,
+          "outputPrice": 13.5
+        }
+      ],
+      "best_price": {
+        "group": "Gemini旗舰",
+        "inputPrice": 1.6875,
+        "outputPrice": 13.5
+      }
+    },
+    {
+      "model_name": "kimi-k2.5",
+      "vendor_id": 6,
+      "quota_type": 0,
+      "model_ratio": 2.8,
+      "completion_ratio": 5.25,
+      "enable_groups": [
+        "国产模型"
+      ],
+      "group_prices": [
+        {
+          "group": "国产模型",
+          "inputPrice": 2.8,
+          "outputPrice": 14.7
+        }
+      ],
+      "best_price": {
+        "group": "国产模型",
+        "inputPrice": 2.8,
+        "outputPrice": 14.7
+      }
+    },
+    {
+      "model_name": "gpt-5.5",
+      "vendor_id": 3,
+      "quota_type": 0,
+      "model_ratio": 2.5,
+      "completion_ratio": 6,
+      "enable_groups": [
+        "高质量",
+        "高质量备用"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量",
+          "inputPrice": 3.75,
+          "outputPrice": 22.5
+        },
+        {
+          "group": "高质量备用",
+          "inputPrice": 4.5,
+          "outputPrice": 27
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 3.75,
+        "outputPrice": 22.5
+      }
+    },
+    {
+      "model_name": "gpt-image-2",
+      "vendor_id": 3,
+      "quota_type": 1,
+      "model_ratio": 0,
+      "completion_ratio": 0,
+      "enable_groups": [
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量",
+          "inputPrice": 0,
+          "outputPrice": 0
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0,
+        "outputPrice": 0
+      }
+    },
+    {
+      "model_name": "text-embedding-3-small",
+      "quota_type": 0,
+      "model_ratio": 0.105,
+      "completion_ratio": 1,
+      "enable_groups": [
+        "高质量"
+      ],
+      "group_prices": [
+        {
+          "group": "高质量",
+          "inputPrice": 0.1575,
+          "outputPrice": 0.1575
+        }
+      ],
+      "best_price": {
+        "group": "高质量",
+        "inputPrice": 0.1575,
+        "outputPrice": 0.1575
+      }
+    },
+    {
+      "model_name": "gemini-3.1-pro-preview",
+      "vendor_id": 2,
+      "quota_type": 0,
+      "model_ratio": 1,
+      "completion_ratio": 6,
+      "enable_groups": [
+        "auto",
+        "Gemini旗舰"
+      ],
+      "group_prices": [
+        {
+          "group": "Gemini旗舰",
+          "inputPrice": 2.7,
+          "outputPrice": 16.200000000000003
+        }
+      ],
+      "best_price": {
+        "group": "Gemini旗舰",
+        "inputPrice": 2.7,
+        "outputPrice": 16.200000000000003
+      }
+    }
+  ]
+}

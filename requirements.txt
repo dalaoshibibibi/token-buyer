@@ -1,0 +1,4 @@
+# Token买手 — 赛道 A 全量 Excel 输出依赖（可选）
+# 仅在使用 price_normalizer.py 生成标准化对比 Excel 时需要
+pandas>=2.0
+openpyxl>=3.1

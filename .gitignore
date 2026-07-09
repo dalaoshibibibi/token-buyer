@@ -1,0 +1,23 @@
+# ===== 依赖安装产物 =====
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# ===== 运行时生成产物（非源码） =====
+*.xlsx
+*.log
+.DS_Store
+
+# ===== 本地敏感配置（如有） =====
+.env
+.env.local
+credentials.json
+*.secret
+
+# ===== 编辑器 / 系统 =====
+.idea/
+.vscode/
+*.swp

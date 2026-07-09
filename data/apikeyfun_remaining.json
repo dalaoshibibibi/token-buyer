@@ -1,0 +1,69 @@
+{
+  "Gemini_official": [
+    {
+      "model": "gemini-3.1-pro-preview",
+      "inputRMB": "28.00",
+      "outputRMB": "126.00",
+      "cacheReadRMB": "2.80",
+      "raw": [
+        "gemini-3.1-pro-preview复制 gemini-3.1-pro-preview",
+        "￥28.00/ 1M tokens",
+        "￥126.00/ 1M tokens",
+        "￥2.80/ 1M tokens",
+        "最新预览版，性能最强"
+      ]
+    },
+    {
+      "model": "gemini-3-pro-preview",
+      "inputRMB": "28.00",
+      "outputRMB": "126.00",
+      "cacheReadRMB": "2.80",
+      "raw": [
+        "gemini-3-pro-preview复制 gemini-3-pro-preview",
+        "￥28.00/ 1M tokens",
+        "￥126.00/ 1M tokens",
+        "￥2.80/ 1M tokens",
+        "最新预览版，性能最强"
+      ]
+    },
+    {
+      "model": "gemini-3-flash-preview",
+      "inputRMB": "3.50",
+      "outputRMB": "21.00",
+      "cacheReadRMB": "0.35",
+      "raw": [
+        "gemini-3-flash-preview复制 gemini-3-flash-preview",
+        "￥3.50/ 1M tokens",
+        "￥21.00/ 1M tokens",
+        "￥0.35/ 1M tokens",
+        "快速预览版，性价比高"
+      ]
+    }
+  ],
+  "Zhipu": [
+    {
+      "model": "glm-5.2",
+      "inputRMB": "4.00",
+      "outputRMB": "14.00",
+      "raw": [
+        "glm-5.2复制 glm-5.2",
+        "￥4.00 / 1M tokens官方价格 ￥8.00",
+        "￥14.00 / 1M tokens官方价格 ￥28.00",
+        "￥1.00 / 1M tokens官方价格 ￥2.00",
+        "省 50%"
+      ]
+    },
+    {
+      "model": "glm-5.1",
+      "inputRMB": "4.00",
+      "outputRMB": "14.00",
+      "raw": [
+        "glm-5.1复制 glm-5.1",
+        "￥4.00 / 1M tokens官方价格 ￥8.00",
+        "￥14.00 / 1M tokens官方价格 ￥28.00",
+        "￥1.00 / 1M tokens官方价格 ￥2.00",
+        "省 50%"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "zenmux": {
+    "platform": "ZenmuxAI",
+    "success": true,
+    "mode": "dedicated",
+    "modelCount": 137,
+    "note": "专用API抓取成功"
+  }
+}

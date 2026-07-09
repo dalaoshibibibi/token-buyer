@@ -1,0 +1,20 @@
+{
+  "name": "token-buyer",
+  "version": "7.4.0",
+  "description": "AI 算力采购决策专家 — API 中转站 & Token Plan 横向对比 Skill（WorkBuddy）",
+  "private": true,
+  "scripts": {
+    "token-plan": "node scripts/report_generator.js --track token-plan",
+    "api-proxy": "node scripts/report_generator.js --track api-proxy --model",
+    "match": "node scripts/model_matcher.js",
+    "scrape": "node scripts/scraper.js"
+  },
+  "optionalDependencies": {
+    "axios": "^1.7.0",
+    "playwright-core": "^1.45.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
