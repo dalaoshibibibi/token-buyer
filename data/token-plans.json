@@ -1,0 +1,215 @@
+{
+  "_meta": {
+    "description": "Token买手统一数据源：Token Plan 套餐 + 各平台旗舰模型真实 API 单价。reverse_calc.js 与 references/*.md 均以本文件为准。",
+    "as_of": "2026-06-28",
+    "usd_cny_rate": 7,
+    "warning": "价格随时可能调整。推荐前必须 WebFetch 各平台官方定价页复核，不得直接引用本文件的陈旧数字。"
+  },
+
+  "api_base_prices": {
+    "_unit": "元/百万 tokens；mixed = (input + output) / 2，按输入输出 1:1 估算",
+    "deepseek": {
+      "flagship": "deepseek-v4-pro",
+      "input": 0.435,
+      "output": 0.87,
+      "mixed": 0.65,
+      "source_url": "https://platform.deepseek.com",
+      "confidence": "official"
+    },
+    "glm": {
+      "flagship": "GLM-4.5 系列",
+      "input": 0.8,
+      "output": 2.0,
+      "mixed": 1.4,
+      "source_url": "https://bigmodel.cn/pricing",
+      "confidence": "official"
+    },
+    "qwen": {
+      "flagship": "qwen3.7-plus",
+      "input": 0.8,
+      "output": 2.0,
+      "mixed": 1.4,
+      "source_url": "https://help.aliyun.com/zh/model-studio/",
+      "confidence": "official"
+    },
+    "kimi": {
+      "flagship": "kimi-k2.7-code",
+      "input": 4.0,
+      "output": 16.0,
+      "mixed": 10.0,
+      "source_url": "https://platform.moonshot.cn",
+      "confidence": "estimated",
+      "note": "K2 系列官方未公开精准定价，多方交叉估算"
+    },
+    "minimax": {
+      "flagship": "MiniMax-M2.7",
+      "input": 1.0,
+      "output": 8.0,
+      "mixed": 2.5,
+      "source_url": "https://platform.minimaxi.com",
+      "confidence": "estimated",
+      "note": "官方定价页为 SPA 无法直接提取；按保守值 2.5 折算，确保不高估 Token Plan 等效价值（算术混合为 4.5）"
+    },
+    "command_code": {
+      "flagship": "Command Code 混合模型池",
+      "input": null,
+      "output": null,
+      "mixed": 1.0,
+      "source_url": "https://commandcode.ai/pricing",
+      "confidence": "estimated",
+      "note": "按 Credit 倍率折算的等效混合单价"
+    }
+  },
+
+  "credits_exchange": {
+    "_note": "阿里云百炼 Token Plan 采用 Credits 计费，1 Credit 兑换 tokens 数因模型档位而异",
+    "qwen": [
+      { "tier": "轻量模型", "tokens_per_credit": 1000, "example": "Qwen3.6-Flash" },
+      { "tier": "通用模型", "tokens_per_credit": 500, "example": "Qwen3.6-Plus" },
+      { "tier": "旗舰模型", "tokens_per_credit": 200, "example": "Qwen3.7-Max" },
+      { "tier": "长上下文", "tokens_per_credit": 100, "example": "Qwen-Long" }
+    ],
+    "reference_calibration": "qwen3.6-plus 实测 8349 input + 40794 cache + 573 output tokens ≈ 3.18 Credits"
+  },
+
+  "token_plans": [
+    {
+      "platform": "MiniMax",
+      "plan": "Plus",
+      "monthly_fee": 49,
+      "tokens_per_month": 600000000,
+      "price_key": "minimax",
+      "window_5h": "1500次(M2.7) / 750次(M2.7-hs)",
+      "agent_concurrency": "3-4",
+      "video_gen": null,
+      "source_url": "https://platform.minimaxi.com/subscribe/token-plan"
+    },
+    {
+      "platform": "MiniMax",
+      "plan": "Max",
+      "monthly_fee": 119,
+      "tokens_per_month": 1800000000,
+      "price_key": "minimax",
+      "window_5h": "4500次(M2.7) / 2250次(M2.7-hs)",
+      "agent_concurrency": "4-5",
+      "video_gen": "3条/日",
+      "source_url": "https://platform.minimaxi.com/subscribe/token-plan"
+    },
+    {
+      "platform": "MiniMax",
+      "plan": "Ultra",
+      "monthly_fee": 469,
+      "tokens_per_month": 7100000000,
+      "price_key": "minimax",
+      "window_5h": "15000次(M2.7) / 7500次(M2.7-hs)",
+      "agent_concurrency": "6-7",
+      "video_gen": "5条/日",
+      "source_url": "https://platform.minimaxi.com/subscribe/token-plan"
+    },
+    {
+      "platform": "GLM",
+      "plan": "Lite",
+      "monthly_fee": 49,
+      "tokens_per_month": 750000000,
+      "price_key": "glm",
+      "window_5h": "~80次prompts",
+      "source_url": "https://bigmodel.cn/glm-coding"
+    },
+    {
+      "platform": "GLM",
+      "plan": "Pro",
+      "monthly_fee": 149,
+      "tokens_per_month": 2300000000,
+      "price_key": "glm",
+      "window_5h": "~400次prompts",
+      "source_url": "https://bigmodel.cn/glm-coding"
+    },
+    {
+      "platform": "GLM",
+      "plan": "Max",
+      "monthly_fee": 469,
+      "tokens_per_month": 7000000000,
+      "price_key": "glm",
+      "window_5h": "~1600次prompts",
+      "source_url": "https://bigmodel.cn/glm-coding"
+    },
+    {
+      "platform": "Kimi",
+      "plan": "Andante (年付)",
+      "monthly_fee": 39,
+      "tokens_per_month": 200000000,
+      "price_key": "kimi",
+      "window_5h": "~300-1200次",
+      "source_url": "https://www.kimi.com/code"
+    },
+    {
+      "platform": "Kimi",
+      "plan": "Moderato (年付)",
+      "monthly_fee": 79,
+      "tokens_per_month": 1000000000,
+      "price_key": "kimi",
+      "window_5h": "更大配额",
+      "source_url": "https://www.kimi.com/code"
+    },
+    {
+      "platform": "Command Code",
+      "plan": "Pro",
+      "monthly_fee_usd": 15,
+      "monthly_fee": 105,
+      "credits_per_month": 25000,
+      "tokens_per_credit": 400000,
+      "tokens_per_month": 10000000000,
+      "price_key": "command_code",
+      "note": "25000 Credits × 0.4M tokens/credit 折算",
+      "source_url": "https://commandcode.ai/pricing"
+    },
+    {
+      "platform": "Command Code",
+      "plan": "Max 10x",
+      "monthly_fee_usd": 100,
+      "monthly_fee": 700,
+      "credits_per_month": 110000,
+      "tokens_per_credit": 400000,
+      "tokens_per_month": 44000000000,
+      "price_key": "command_code",
+      "note": "110000 Credits × 0.4M tokens/credit 折算",
+      "source_url": "https://commandcode.ai/pricing"
+    },
+    {
+      "platform": "Qwen",
+      "plan": "标准坐席",
+      "monthly_fee": 198,
+      "credits_per_month": 25000,
+      "tokens_per_credit": 500,
+      "tokens_per_month": 12500000,
+      "price_key": "qwen",
+      "window_5h": "无窗口限制（月度额度用完即止）",
+      "note": "按通用模型档 1 Credit = 500 tokens 折算",
+      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-overview"
+    },
+    {
+      "platform": "Qwen",
+      "plan": "高级坐席",
+      "monthly_fee": 698,
+      "credits_per_month": 100000,
+      "tokens_per_credit": 500,
+      "tokens_per_month": 50000000,
+      "price_key": "qwen",
+      "window_5h": "无窗口限制（月度额度用完即止）",
+      "note": "按通用模型档 1 Credit = 500 tokens 折算",
+      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-overview"
+    },
+    {
+      "platform": "Qwen",
+      "plan": "尊享坐席",
+      "monthly_fee": 1398,
+      "credits_per_month": 250000,
+      "tokens_per_credit": 500,
+      "tokens_per_month": 125000000,
+      "price_key": "qwen",
+      "window_5h": "无窗口限制（月度额度用完即止）",
+      "note": "按通用模型档 1 Credit = 500 tokens 折算",
+      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-overview"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ price_normalizer.py — API价格标准化 & 合并 & 异常检测 & 输出
   - JSON (.json) — 来自 scraper.js 网页抓取的标准化输出
   - WebFetch文本 — 从网页提取的表格文本（需要先解析）
 
-配合 scraper.js 使用：scraper 产出 scrape_results/ 后，本脚本自动读取。
+配合 scraper.js 使用：scraper 产出 data/*.json 后，本脚本自动读取。
 
 使用方法：
   python price_normalizer.py
@@ -44,7 +44,7 @@ def load_dataframe(path):
         return None
 
     ext = os.path.splitext(path)[1].lower()
-    
+
     if ext == '.xlsx' or ext == '.xls':
         try:
             df = pd.read_excel(path)
@@ -93,7 +93,7 @@ def find_platform_file(platform_key, data_dir='./data'):
         'geeknow': ['geeknow', 'GeekNow', 'geek_now', 'Geek', 'geek'],
         'grsai': ['grsai', 'grs_ai', 'GrsAI', 'GRS', 'grs']
     }
-    
+
     pattern = patterns.get(platform_key, [platform_key])
     data_dir = Path(data_dir)
     if not data_dir.exists():
@@ -146,7 +146,8 @@ def normalize_geek(df):
 
 def detect_abnormal_price(row):
     price_list = []
-    for col in ["APIMart输入单价_人民币", "输入折后", "输入_顶配"]:
+    # 列名与各 normalize_* 函数的输出保持一致
+    for col in ["输入单价_人民币", "输入折后", "输入_顶配"]:
         v = row.get(col)
         if pd.notna(v) and v > 0:
             price_list.append(v)
@@ -208,7 +209,8 @@ def merge_all_model(df_api, df_geek, df_grs):
 
 def run_full_compare(api_path=None, geek_path=None, grs_path=None):
     """入口函数：自动查找文件并运行完整流程"""
-    data_dir = Path(__file__).parent / "data"
+    # data/ 位于 skill 根目录（scripts/ 的上一级）
+    data_dir = Path(__file__).resolve().parent.parent / "data"
     data_dir.mkdir(exist_ok=True)
 
     # 查找文件
@@ -220,9 +222,9 @@ def run_full_compare(api_path=None, geek_path=None, grs_path=None):
 
     for k, v in paths.items():
         if v:
-            print(f"  [${k}] 使用文件: {v}")
+            print(f"  [{k}] 使用文件: {v}")
         else:
-            print(f"  [${k}] 未找到文件")
+            print(f"  [{k}] 未找到文件")
 
     # 加载
     df_api = load_dataframe(paths['apimart']) if paths['apimart'] else None
@@ -251,23 +253,23 @@ def run_full_compare(api_path=None, geek_path=None, grs_path=None):
         output_path = data_dir / "三平台价格合并对比表.xlsx"
         result.to_excel(str(output_path), index=False)
         print(f"\n  ✅ 最终输出: {output_path} ({len(result)}条)")
-    
+
     return result
 
 
 # ====================== CLI入口 ======================
 if __name__ == "__main__":
     import argparse
-    
+
     parser = argparse.ArgumentParser(description='API价格标准化 & 合并工具')
     parser.add_argument('--mode', choices=['auto', 'single'], default='auto',
                        help='auto=全自动查找合并; single=指定单文件')
     parser.add_argument('--input', help='单文件路径（配合 --mode single 使用）')
     parser.add_argument('--platform', choices=['apimart', 'geeknow', 'grsai'],
                        help='指定平台（配合 --mode single 使用）')
-    
+
     args = parser.parse_args()
-    
+
     if args.mode == 'single' and args.input:
         # 处理单个文件
         df = load_dataframe(args.input)

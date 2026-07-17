@@ -1,11 +1,11 @@
 /**
- * api-price-comparator 爬虫模块
- * 
+ * token-buyer 爬虫模块
+ *
  * 三层抓取策略：
  *   Layer 1 — API端点探测（HTTP GET/POST，无需浏览器）
  *   Layer 2 — 浏览器自动化（Playwright + 系统Chrome，JS SPA）
  *   Layer 3 — 引导导出（结构化提示，当L1/L2都失败时）
- * 
+ *
  * 输出格式：统一的JSON数组，每条记录包含：
  *   { platform, model, billing, inputPrice, outputPrice, unit, source }
  */
@@ -64,6 +64,38 @@ const PLATFORMS = {
     note: '公开API /api/v1/models 返回全量137个模型+价格（已验证）',
     apiModelEndpoint: 'https://zenmux.ai/api/v1/models',
     currency: 'USD'
+  },
+  yunwu: {
+    name: 'yunwu.ai',
+    baseUrl: 'https://yunwu.ai',
+    urls: [
+      'https://yunwu.ai/api/pricing',
+      'https://yunwu.ai/pricing'
+    ],
+    apiModelEndpoint: 'https://yunwu.ai/api/pricing',
+    note: '公开API /api/pricing 返回227个模型/30分组（已验证）',
+    currency: 'CNY'
+  },
+  haoshuang: {
+    name: 'HaoshuangAPI',
+    baseUrl: 'https://api.haoshuang.cn',
+    urls: [
+      'https://api.haoshuang.cn/api/pricing',
+      'https://api.haoshuang.cn/pricing'
+    ],
+    apiModelEndpoint: 'https://api.haoshuang.cn/api/pricing',
+    note: '公开API /api/pricing 返回27个模型（已验证）',
+    currency: 'CNY'
+  },
+  apikeyfun: {
+    name: 'APIKEY.FUN',
+    baseUrl: 'https://apikey.fun',
+    urls: [
+      'https://apikey.fun/pricing',
+      'https://apikey.fun/api/pricing'
+    ],
+    note: 'Cloudflare 拦截直连，需走 Layer 2 浏览器自动化（已验证28行定价）',
+    currency: 'CNY'
   }
 };
 
@@ -87,7 +119,7 @@ async function probeApiEndpoints(platform) {
         },
         validateStatus: () => true
       });
-      
+
       const info = {
         url,
         status: resp.status,
@@ -177,8 +209,8 @@ async function scrapeWithBrowser(platform, credentials) {
           ));
           const cardTexts = cards.map(c => c.textContent.trim()).filter(t => t.length > 0 && t.length < 200);
           const bodyText = document.body?.innerText || '';
-          const priceLines = bodyText.split('\n').filter(l => 
-            l.includes('¥') || l.includes('元') || l.includes('$') || 
+          const priceLines = bodyText.split('\n').filter(l =>
+            l.includes('¥') || l.includes('元') || l.includes('$') ||
             l.toLowerCase().includes('price') || l.toLowerCase().includes('cost')
           );
           return { tableData, cardTexts, priceLines };
@@ -210,7 +242,7 @@ async function scrapeWithBrowser(platform, credentials) {
 // ============================================================
 async function scrapeZenmux() {
   console.log('[ZenmuxAI] 通过公开API抓取价格...');
-  
+
   const resp = await axios.get('https://zenmux.ai/api/v1/models', {
     timeout: 15000,
     headers: {
@@ -334,7 +366,7 @@ async function scrapePlatform(platform, credentials) {
   // L1: API端点探测
   const apiResult = await probeApiEndpoints(platform);
   const hasApiData = apiResult.some(r => r.isJson && r.hasModels && r.hasPrices);
-  
+
   // 对于已知有公开API端点的平台，直接爬取数据
   if (config.apiModelEndpoint) {
     console.log(`  检测到公开API端点: ${config.apiModelEndpoint}`);
@@ -423,18 +455,18 @@ async function scrapeAll(credentials, onlyPlatforms) {
 // ============================================================
 if (require.main === module) {
   const args = process.argv.slice(2);
-  
+
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
 用法: node scraper.js [platform] [--help]
 
-platform 可选: apimart, grsai, geeknow, zenmux
+platform 可选: apimart, grsai, geeknow, zenmux, yunwu, haoshuang, apikeyfun
 不传参数则抓取全部已配置平台
 
 示例:
   node scraper.js              # 抓取所有平台
   node scraper.js zenmux       # 只抓取 ZenmuxAI
-  node scraper.js apimart grsai # 抓取指定平台
+  node scraper.js yunwu haoshuang # 抓取指定平台
 `);
     process.exit(0);
   }

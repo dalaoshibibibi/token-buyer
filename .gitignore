@@ -22,8 +22,7 @@ credentials.json
 .vscode/
 *.swp
 
-# 原始抓取快照（第三方平台数据，不进开源仓库）
-data/*.json
-
-# 例外：保留纯合成的格式样例（无第三方内容）
-!data/sample.json
+# 第三方平台抓取快照（不进开源仓库）；自有整理数据 token-plans.json + 合成样例 sample.json 保留
+data/*_scraped.json
+data/apikeyfun_*.json
+data/scrape_report.json
